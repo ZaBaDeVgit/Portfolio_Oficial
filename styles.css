@@ -1018,3 +1018,36 @@ body::-webkit-scrollbar {
         width: 100%;
     }
 }
+
+/* Separador Láser entre secciones */
+.laser-divider {
+    height: 2px;
+    width: 80%;
+    margin: 100px auto;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.laser-divider::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+    filter: blur(4px);
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateX(-200px);
+    }
+
+    100% {
+        transform: translateX(calc(80vw + 200px));
+    }
+}
