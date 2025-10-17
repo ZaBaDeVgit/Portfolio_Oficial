@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZaBaDeV - Portfolio 3D</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="floating-element floating-element-1"></div>
+    <div class="floating-element floating-element-2"></div>
+    <div class="floating-element floating-element-3"></div>
+
+    <!-- Elementos de luz adicionales -->
+    <div class="particle-light light-1"></div>
+    <div class="particle-light light-2"></div>
+
+    <nav class="navbar">
+        <a href="#home" class="logo">
+            <img src="https://github.com/BalaZaStudio/My-LogoS-Images/blob/main/LogoOct2024.gif?raw=true"
+                alt="Logo Oct 2024">
+            <div class="logo-text">ZaBaDeV</div>
+        </a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">Sobre Mí</a>
+            <a href="#skills" class="nav-link">Habilidades</a>
+            <a href="#experience" class="nav-link">Experiencia</a>
+            <a href="#education" class="nav-link">Educación</a>
+            <a href="#certifications" class="nav-link">Certificaciones</a>
+            <a href="#projects" class="nav-link">Proyectos</a>
+            <a href="#contact" class="nav-link">Contacto</a>
+        </div>
+    </nav>
+
+    <div id="main-wrapper">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">ZaBaDeV</h1>
+                <p class="hero-subtitle">Formador Online / Desarrollador Full Stack / Empleado Público / CyberSeguridad / Entusiasta en IA</p>
+                <div class="hero-buttons">
+                    <a href="#experience" class="btn btn-primary">Ver Experiencia <i class="fas fa-briefcase"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Contactar <i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>¡Hola! Soy un funcionario público con una pasión desbordante por la programación y la tecnología. Con
+                    más de 20 años de experiencia en la administración pública de España, he estado comprometido con el
+                    servicio a la comunidad y la mejora constante de los procesos.</p>
+                <p>Mi viaje en el mundo de la tecnología comenzó como un interés personal, pero rápidamente se convirtió
+                    en una pasión que me impulsó a buscar oportunidades para aprender y crecer en el campo de la
+                    programación. Mi deseo de adquirir nuevas habilidades y conocimientos me llevó a explorar diversos
+                    lenguajes de programación, herramientas y tecnologías.</p>
+                <p>Mi objetivo es combinar mis años de experiencia en la administración con mi entusiasmo por la
+                    programación y la tecnología, para crear soluciones innovadoras que beneficien a la sociedad en
+                    general.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://raw.githubusercontent.com/NotStark/NotStark/main/Assests/programmer.gif"
+                    alt="Coding gif">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <i class="fas fa-shield-alt skill-icon"></i>
+                <span>Ciberseguridad</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-laptop-code skill-icon"></i>
+                <span>Programación</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-desktop skill-icon"></i>
+                <span>Reparación de equipos</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-globe skill-icon"></i>
+                <span>Desarrollo web</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-network-wired skill-icon"></i>
+                <span>Soporte técnico de redes</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-cloud skill-icon"></i>
+                <span>Gestión en la nube</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-mobile-alt skill-icon"></i>
+                <span>Desarrollo de Android</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-paint-brush skill-icon"></i>
+                <span>Diseño de logotipos</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database skill-icon"></i>
+                <span>Recuperación de datos</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-lock skill-icon"></i>
+                <span>Seguridad de la información</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-comments skill-icon"></i>
+                <span>Consultoría de TI</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-home skill-icon"></i>
+                <span>Teletrabajo</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2 class="section-title">Experiencia Profesional</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">ago. 2025 - actualidad</div>
+                    <h3 class="timeline-title">Voluntario</h3>
+                    <div class="timeline-company">Fundación Cibervoluntarios - Cybervolunteers Foundation</div>
+                    <p class="timeline-description">Colaboración como voluntario en proyectos de ciberseguridad y
+                        concienciación digital.</p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Ciberseguridad</span>
+                        <span class="timeline-tag">Voluntariado</span>
+                        <span class="timeline-tag">Formación</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">oct. 2000 - actualidad</div>
+                    <h3 class="timeline-title">Funcionario público</h3>
+                    <div class="timeline-company">Ministerio de Defensa</div>
+                    <p class="timeline-description">Más de 20 años de experiencia en la administración pública de
+                        España, comprometido con el servicio a la comunidad y la mejora constante de los procesos.</p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Administración Pública</span>
+                        <span class="timeline-tag">Gestión</span>
+                        <span class="timeline-tag">Servicio Público</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">sept. 2024 - feb. 2025</div>
+                    <h3 class="timeline-title">Estudiante en prácticas</h3>
+                    <div class="timeline-company">HIGHER EDUCATION SOFTWARE SL</div>
+                    <p class="timeline-description">Prácticas en desarrollo de software, aplicando conocimientos de Java
+                        y NetBeans en proyectos reales.</p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Java</span>
+                        <span class="timeline-tag">NetBeans</span>
+                        <span class="timeline-tag">Desarrollo de Software</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">mar. 2024 - may. 2024</div>
+                    <h3 class="timeline-title">Estudiante en prácticas</h3>
+                    <div class="timeline-company">HIGHER EDUCATION SOFTWARE SL</div>
+                    <p class="timeline-description">Primeras prácticas en desarrollo web, trabajando con HTML5 y otras
+                        tecnologías frontend.</p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">HTML5</span>
+                        <span class="timeline-tag">Frontend</span>
+                        <span class="timeline-tag">Desarrollo Web</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <h2 class="section-title">Educación</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="education-title">UNIVERSAE</h3>
+                </div>
+                <div class="education-body">
+                    <div class="education-date">sept. 2023 - feb. 2025</div>
+                    <p class="education-description">Doble Grado Superior Desarrollo de Aplicaciones Multiplataforma +
+                        Desarrollo de Aplicaciones Web, Informática, comunicaciones y servicios de asistencia.</p>
+                    <div class="education-tags">
+                        <span class="education-tag">Multiplataforma</span>
+                        <span class="education-tag">Desarrollo Web</span>
+                        <span class="education-tag">Informática</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="education-title">Linkia FP</h3>
+                </div>
+                <div class="education-body">
+                    <div class="education-date">feb. 2020 - abr. 2022</div>
+                    <p class="education-description">Formación Profesional de Grado Medio Sistemas Microinformáticos y
+                        Redes, Informática.</p>
+                    <div class="education-tags">
+                        <span class="education-tag">Sistemas Microinformáticos</span>
+                        <span class="education-tag">Redes</span>
+                        <span class="education-tag">Hardware</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <h2 class="section-title">Certificaciones</h2>
+        <div class="certifications-container">
+            <div class="certification-card">
+                <i class="fas fa-certificate certification-icon"></i>
+                <h3 class="certification-title">Curso de iniciación al desarrollo con IA</h3>
+                <p class="certification-issuer">BIG school</p>
+                <p class="certification-date">oct. 2025</p>
+            </div>
+
+            <div class="certification-card">
+                <i class="fas fa-code certification-icon"></i>
+                <h3 class="certification-title">HTML desde Cero</h3>
+                <p class="certification-issuer">midudev</p>
+                <p class="certification-date">jul. 2025</p>
+            </div>
+
+            <div class="certification-card">
+                <i class="fas fa-chalkboard-teacher certification-icon"></i>
+                <h3 class="certification-title">Acreditación Docente para Teleformación</h3>
+                <p class="certification-issuer">SSCE002POS</p>
+                <p class="certification-date">2025</p>
+            </div>
+
+            <div class="certification-card">
+                <i class="fas fa-link certification-icon"></i>
+                <h3 class="certification-title">Blockchain: Aplicaciones en Empresa</h3>
+                <p class="certification-issuer">ADGD11</p>
+                <p class="certification-date">2025</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="project-title">Aplicación Control de Personal</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Aplicación web diseñada para simplificar la gestión y programación de
+                        guardias de seguridad. Permite a los administradores gestionar eficientemente los turnos de
+                        guardia de su equipo.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Calendario Interactivo</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 15</span>
+                        <span><i class="fas fa-code-branch"></i> 7</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        Ver Proyecto <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="project-title">Python Data Analysis</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Herramientas y scripts para análisis de datos utilizando Python,
+                        Pandas, NumPy y bibliotecas de visualización como Matplotlib y Seaborn.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 24</span>
+                        <span><i class="fas fa-code-branch"></i> 8</span>
+                    </div>
+                    <a href="https://github.com/ZaBaDeV/python-data-analysis" class="project-link" target="_blank">
+                        Ver Repositorio <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="project-title">React Dashboard</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Panel de control interactivo construido con React, Redux y
+                        Material-UI. Incluye gráficos, tablas y funcionalidades de filtrado avanzado.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Material-UI</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 18</span>
+                        <span><i class="fas fa-code-branch"></i> 7</span>
+                    </div>
+                    <a href="https://github.com/ZaBaDeV/react-dashboard" class="project-link" target="_blank">
+                        Ver Repositorio <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="project-title">Node.js API REST</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">API RESTful construida con Node.js, Express y MongoDB. Implementa
+                        autenticación JWT, validación de datos y documentación con Swagger.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 32</span>
+                        <span><i class="fas fa-code-branch"></i> 12</span>
+                    </div>
+                    <a href="https://github.com/ZaBaDeV/nodejs-rest-api" class="project-link" target="_blank">
+                        Ver Repositorio <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fab fa-unity"></i>
+                    </div>
+                    <h3 class="project-title">Unity 3D Game</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Juego 3D desarrollado en Unity con C#. Incluye mecánicas de juego,
+                        sistema de puntuación, niveles y efectos visuales impresionantes.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">3D</span>
+                        <span class="tech-tag">Game Dev</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 45</span>
+                        <span><i class="fas fa-code-branch"></i> 15</span>
+                    </div>
+                    <a href="https://github.com/ZaBaDeV/unity-3d-game" class="project-link" target="_blank">
+                        Ver Repositorio <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3 class="project-title">Flutter Mobile App</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Aplicación móvil multiplataforma desarrollada con Flutter y Dart.
+                        Incluye interfaz de usuario atractiva y funcionalidades nativas.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Mobile</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-stats">
+                        <span><i class="fas fa-star"></i> 28</span>
+                        <span><i class="fas fa-code-branch"></i> 9</span>
+                    </div>
+                    <a href="https://github.com/ZaBaDeV/flutter-mobile-app" class="project-link" target="_blank">
+                        Ver Repositorio <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contacto</h2>
+        <p>¿Interesado en trabajar juntos? ¡No dudes en contactarme!</p>
+        <div class="contact-links">
+            <a href="https://instagram.com/ZaBaDeV" target="_blank">
+                <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram"/>
+            </a>
+            <a href="https://www.linkedin.com/in/juan-jose-zabala-rios-237a65116/" target="_blank">
+                <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+            </a>
+            <a href="https://www.youtube.com/@ZaBaDev-pn2yq/featured" target="_blank">
+                <img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white" alt="YouTube"/>
+            </a>
+            <a href="https://ko-fi.com/S6S515FZBZ" target="_blank">
+                <img src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi" />
+            </a>
+            <a href="https://github.com/ZaBaDeV" target="_blank">
+                <img src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Juan Jose Zabala Rios. Todos los derechos reservados.</p>
+        <p>Hecho con ❤️ por ZaBaDeV</p>
+    </footer>
+
+</div> <!-- Cierre de #main-wrapper -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>
