@@ -19,11 +19,21 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     overflow-x: hidden;
+    scrollbar-width: none;
+    /* Para Firefox */
+    -ms-overflow-style: none;
+    /* Para Internet Explorer y Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* Para Chrome, Safari y Opera */
 }
 
 #main-wrapper {
     perspective: 1000px;
-    overflow-x: clip; /* Previene el desbordamiento horizontal de los efectos 3D */
+    overflow-x: clip;
+    /* Previene el desbordamiento horizontal de los efectos 3D */
 }
 
 /* Partículas de fondo */
@@ -64,7 +74,8 @@ body {
     gap: 15px;
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
-    text-decoration: none; /* Quitamos el subrayado del enlace del logo */
+    text-decoration: none;
+    /* Quitamos el subrayado del enlace del logo */
 }
 
 .logo:hover {
