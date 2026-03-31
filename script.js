@@ -82,7 +82,8 @@ function initNavigation() {
                 'projects': 1,
                 'about': 2,
                 'education': 3,
-                'contact': 4
+                'skills': 4,
+                'contact': 5
             };
             const section = sectionMap[target];
             if (section !== undefined) {
