@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initKeyboardNav();
     initTouchNav();
     hideKeyboardHintAfterScroll();
+    initTerminal();
 });
 
 let currentSection = 0;
@@ -174,6 +175,175 @@ function hideKeyboardHintAfterScroll() {
         hint.style.transition = 'opacity 2s ease';
         hint.style.opacity = '0';
     }, 5000);
+}
+
+function initTerminal() {
+    const terminalOverlay = document.getElementById('terminalOverlay');
+    const terminalWindow = document.getElementById('terminalWindow');
+    const terminalInput = document.getElementById('terminalInput');
+    const terminalOutput = document.getElementById('terminalOutput');
+    const terminalClose = document.getElementById('terminalClose');
+    const terminalMinimize = document.getElementById('terminalMinimize');
+    const terminalLegend = document.getElementById('terminalLegend');
+
+    const terminalData = {
+        bio: `Juan José Zabala
+Full Stack Developer · Ciberseguridad · Formador · IA
+20 años de experiencia en administración pública española
+Passionate about technology and public service`,
+
+        edad: `Edad: 42 años (Nacido: 1983)
+Ubicación: España`,
+
+        educacion: `[2023-2025] Dobles Grado Superior DAM + DAW - UNIVERSAE
+[2020-2022] FP Grado Medio Sistemas Microinformáticos y Redes - Linkia FP`,
+
+        certificados: `[2025] Curso de iniciación al desarrollo con IA - BIG school
+[2025] HTML desde Cero - midudev
+[2025] Acreditación Docente para Teleformación - SSCE002POS
+[2025] Blockchain: Aplicaciones en Empresa - ADGD11`,
+
+        habilidades: `🛡️ Ciberseguridad
+💻 Programación Full Stack
+🌐 Desarrollo Web (HTML, CSS, JavaScript)
+📱 Desarrollo Android
+🔧 Reparación de equipos y redes
+☁️ Gestión en la nube
+🎨 Diseño de logotipos
+💾 Recuperación de datos
+📊 Consultoría de TI`,
+
+        proyectos: `[01] Zaba Calendar - Gestión de turnos y eventos
+[02] Tetris Game - Implementación del clásico juego
+[03] App Quiz - Quiz interactivo con puntuación
+[04] E-commerce - Prototipo de tienda online
+[05] PDF Generator - Generador automatizado de PDFs
+[06] WebSocket-Chat - Chat en tiempo real
+[07] Music Player - Reproductor de música moderno
+[08] Memory Game - Juego de memoria con niveles`,
+
+        contacto: `📧 Email: juanjose.zabala@example.com
+🔗 LinkedIn: Juan José Zabala
+🐙 GitHub: @ZaBaDeVgit
+📸 Instagram: @zabadev_`,
+
+        whoami: `Juan José Zabala - Full Stack Developer
+"Un desarrollador con propósito y pasión"`,
+
+        clear: 'CLEAR'
+    };
+
+    const commands = {
+        help: () => `Comandos disponibles:
+  help      - Muestra esta ayuda
+  bio       - Información personal
+  edad      - Edad y ubicación
+  educacion - Formación académica
+  certificados / certs - Certificaciones
+  habilidades / skills - Habilidades técnicas
+  proyectos / projects - Lista de proyectos
+  contacto / contact   - Información de contacto
+  whoami    - Quién soy
+  clear     - Limpiar terminal
+  exit / quit - Cerrar terminal`,
+
+        bio: () => terminalData.bio,
+        edad: () => terminalData.edad,
+        educacion: () => terminalData.educacion,
+        formacion: () => terminalData.educacion,
+        certificados: () => terminalData.certificados,
+        certs: () => terminalData.certificados,
+        habilidades: () => terminalData.habilidades,
+        skills: () => terminalData.habilidades,
+        proyectos: () => terminalData.proyectos,
+        projects: () => terminalData.proyectos,
+        contacto: () => terminalData.contacto,
+        contact: () => terminalData.contacto,
+        whoami: () => terminalData.whoami,
+        clear: () => {
+            terminalOutput.innerHTML = '';
+            return null;
+        }
+    };
+
+    function openTerminal() {
+        terminalOverlay.classList.add('active');
+        terminalWindow.classList.remove('terminal-hidden');
+        terminalLegend.classList.remove('terminal-hidden');
+        terminalInput.focus();
+    }
+
+    function closeTerminal() {
+        terminalOverlay.classList.remove('active');
+        terminalWindow.classList.add('terminal-hidden');
+        terminalLegend.classList.add('terminal-hidden');
+    }
+
+    function toggleTerminal() {
+        if (terminalWindow.classList.contains('terminal-hidden')) {
+            openTerminal();
+        } else {
+            closeTerminal();
+        }
+    }
+
+    function processCommand(cmd) {
+        const trimmedCmd = cmd.trim().toLowerCase();
+        
+        if (trimmedCmd === 'exit' || trimmedCmd === 'quit') {
+            closeTerminal();
+            return null;
+        }
+
+        if (commands[trimmedCmd]) {
+            return commands[trimmedCmd]();
+        }
+
+        return `Command not found: ${cmd}. Type 'help' for available commands.`;
+    }
+
+    function addOutput(command, result, isError = false) {
+        const cmdLine = document.createElement('div');
+        cmdLine.className = 'terminal-line command';
+        cmdLine.textContent = `juan@portfolio:~$ ${command}`;
+        terminalOutput.appendChild(cmdLine);
+
+        if (result !== null) {
+            const resultLine = document.createElement('div');
+            resultLine.className = `terminal-line ${isError ? 'error' : 'output'}`;
+            resultLine.textContent = result;
+            terminalOutput.appendChild(resultLine);
+        }
+
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = terminalInput.value;
+            if (cmd.trim()) {
+                const result = processCommand(cmd);
+                addOutput(cmd, result, !commands[cmd.trim().toLowerCase()] && cmd.trim().toLowerCase() !== 'exit' && cmd.trim().toLowerCase() !== 'quit' && result !== null);
+            } else {
+                const emptyLine = document.createElement('div');
+                emptyLine.className = 'terminal-line command';
+                emptyLine.textContent = 'juan@portfolio:~$ ';
+                terminalOutput.appendChild(emptyLine);
+            }
+            terminalInput.value = '';
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 't') {
+            e.preventDefault();
+            toggleTerminal();
+        }
+    });
+
+    terminalOverlay.addEventListener('click', closeTerminal);
+    terminalClose.addEventListener('click', closeTerminal);
+    terminalMinimize.addEventListener('click', closeTerminal);
 }
 
 window.addEventListener('resize', () => {
