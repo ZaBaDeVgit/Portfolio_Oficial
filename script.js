@@ -98,6 +98,10 @@ function initKeyboardNav() {
     document.addEventListener('keydown', (e) => {
         if (isMobile) return;
         
+        // Si el terminal está abierto, ignorar atajos de navegación
+        const terminalWindow = document.getElementById('terminalWindow');
+        if (terminalWindow && !terminalWindow.classList.contains('terminal-hidden')) return;
+        
         switch(e.key) {
             case 'ArrowRight':
             case 'ArrowDown':
