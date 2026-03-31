@@ -320,15 +320,36 @@ body {
 ============================================ */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.projects-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.projects-grid::-webkit-scrollbar-track {
+    background: var(--bg-card);
+    border-radius: 3px;
+}
+
+.projects-grid::-webkit-scrollbar-thumb {
+    background: var(--cyan-dim);
+    border-radius: 3px;
+}
+
+.projects-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan);
 }
 
 .project-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 32px;
+    padding: 24px;
     background: var(--bg-card);
     border-radius: 16px;
     text-decoration: none;
@@ -336,6 +357,7 @@ body {
     border: 1px solid transparent;
     transition: all 0.4s var(--ease-out);
     overflow: hidden;
+    min-height: 180px;
 }
 
 .project-card::before {
@@ -740,12 +762,6 @@ body {
 /* ============================================
    RESPONSIVE DESIGN
 ============================================ */
-@media (max-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 992px) {
     .panel {
         padding: 40px;
