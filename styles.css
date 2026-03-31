@@ -321,17 +321,26 @@ body {
 ============================================ */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.projects-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    padding: 16px;
     background: var(--bg-card);
-    border-radius: 16px;
+    border-radius: 12px;
     text-decoration: none;
     color: var(--text-primary);
     border: 1px solid transparent;
@@ -383,25 +392,26 @@ body {
 .card-number {
     display: block;
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--cyan-dim);
     line-height: 1;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+}
 }
 
 .card-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .card-desc {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 16px;
+    line-height: 1.4;
+    margin-bottom: 8px;
 }
 
 .card-tech {
@@ -742,6 +752,24 @@ body {
 /* ============================================
    RESPONSIVE DESIGN
 ============================================ */
+@media (min-width: 1400px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 992px) {
     .panel {
         padding: 40px;
