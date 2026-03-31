@@ -1356,3 +1356,35 @@ body {
 .terminal-legend strong {
     color: #c9d1d9;
 }
+
+/* Terminal Toggle Button */
+.terminal-toggle {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    border: 1px solid #30363d;
+    color: #58a6ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-toggle:hover {
+    background: linear-gradient(135deg, #161b22 0%, #21262d 100%);
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(88, 166, 255, 0.2);
+}
+
+.terminal-toggle:active {
+    transform: translateY(0);
+}

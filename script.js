@@ -185,6 +185,7 @@ function initTerminal() {
     const terminalClose = document.getElementById('terminalClose');
     const terminalMinimize = document.getElementById('terminalMinimize');
     const terminalLegend = document.getElementById('terminalLegend');
+    const terminalToggle = document.getElementById('terminalToggle');
 
     const terminalData = {
         bio: `Juan José Zabala
@@ -335,7 +336,8 @@ Ubicación: España`,
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 't') {
+        // Ctrl+Shift+` (backtick, tecla debajo de Esc) para togglear terminal
+        if (e.ctrlKey && e.shiftKey && e.key === '`') {
             e.preventDefault();
             toggleTerminal();
         }
@@ -344,6 +346,7 @@ Ubicación: España`,
     terminalOverlay.addEventListener('click', closeTerminal);
     terminalClose.addEventListener('click', closeTerminal);
     terminalMinimize.addEventListener('click', closeTerminal);
+    terminalToggle.addEventListener('click', toggleTerminal);
 }
 
 window.addEventListener('resize', () => {
