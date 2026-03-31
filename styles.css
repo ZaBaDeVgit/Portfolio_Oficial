@@ -324,14 +324,6 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     width: 100%;
-    max-height: 60vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.projects-grid::-webkit-scrollbar {
-    display: none;
 }
 
 .project-card {
