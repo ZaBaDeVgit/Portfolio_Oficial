@@ -1,16 +1,121 @@
 document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
     initHorizontalScroll();
     initNavigation();
     initKeyboardNav();
     initTouchNav();
     hideKeyboardHintAfterScroll();
     initTerminal();
+    initMouseParallax();
+    setTimeout(() => animateSectionIn(0), 300);
 });
 
 let currentSection = 0;
 const totalSections = 6;
 let isAnimating = false;
 let isMobile = window.innerWidth <= 768;
+
+function animateHeroIn() {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.fromTo(".gsap-hero-elem", 
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15 }
+    )
+    .fromTo(".gsap-hero-visual",
+        { opacity: 0, scale: 0.8, rotation: -5 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1 },
+        "-=0.6"
+    );
+}
+
+function animateCounters() {
+    const statValues = document.querySelectorAll('.stat-value');
+    statValues.forEach(el => {
+        const text = el.textContent;
+        const num = parseInt(text);
+        const suffix = text.replace(/[0-9]/g, '');
+        
+        if (isNaN(num)) return;
+        
+        gsap.fromTo(el, 
+            { textContent: 0 },
+            { 
+                textContent: num, 
+                duration: 1.5, 
+                ease: "power2.out",
+                snap: { textContent: 1 },
+                onUpdate: function() {
+                    el.textContent = Math.round(parseFloat(el.textContent)) + suffix;
+                }
+            }
+        );
+    });
+}
+
+function animateSectionIn(index) {
+    if (index === 0) {
+        animateHeroIn();
+        return;
+    }
+    
+    if (index === 1) {
+        gsap.fromTo(".gsap-project-card",
+            { opacity: 0, y: 50, scale: 0.95 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+        );
+        gsap.fromTo(".gsap-section-header",
+            { opacity: 0, x: -30 },
+            { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }
+        );
+    }
+    
+    if (index === 2) {
+        gsap.fromTo(".gsap-about-elem",
+            { opacity: 0, x: -30 },
+            { opacity: 1, x: 0, duration: 0.6, stagger: 0.12, ease: "power3.out" }
+        );
+        animateCounters();
+    }
+    
+    if (index === 3) {
+        gsap.fromTo(".gsap-edu-item",
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.12, ease: "power3.out" }
+        );
+        gsap.fromTo(".gsap-cert-item",
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power3.out", delay: 0.3 }
+        );
+    }
+    
+    if (index === 4) {
+        gsap.fromTo(".gsap-skill-card",
+            { opacity: 0, y: 30, scale: 0.9 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06, ease: "power3.out" }
+        );
+    }
+    
+    if (index === 5) {
+        gsap.fromTo(".gsap-contact-elem",
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+        );
+        gsap.fromTo(".gsap-contact-card",
+            { opacity: 0, y: 40, scale: 0.95 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.12, ease: "power3.out", delay: 0.2 }
+        );
+    }
+}
+
+function initMouseParallax() {
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
+        
+        gsap.to('.gradient-orb-1', { x: x * 30, y: y * 30, duration: 1, ease: "power2.out" });
+        gsap.to('.gradient-orb-2', { x: x * -20, y: y * -20, duration: 1, ease: "power2.out" });
+    });
+}
 
 function initHorizontalScroll() {
     const container = document.getElementById('scrollContainer');
@@ -53,6 +158,10 @@ function goToSection(index) {
     dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === currentSection);
     });
+    
+    gsap.killTweensOf('.gsap-hero-elem, .gsap-hero-visual, .gsap-project-card, .gsap-section-header, .gsap-about-elem, .gsap-stat-card, .gsap-edu-item, .gsap-cert-item, .gsap-skill-card, .gsap-contact-elem, .gsap-contact-card');
+    
+    setTimeout(() => animateSectionIn(currentSection), 150);
     
     setTimeout(() => {
         isAnimating = false;
